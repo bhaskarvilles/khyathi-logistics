@@ -20,8 +20,8 @@ import {
 } from '@remixicon/react'
 
 export const metadata = {
-  title: 'About Us - Khyathi Logistics Solutions',
-  description: 'Learn about Khyathi Logistics Solutions, our vision, mission, and commitment to delivering excellence in logistics and transportation services across India.',
+  title: 'About Us - Khyathi Logistics Solutions Private Limited',
+  description: 'Learn about Khyathi Logistics Solutions Private Limited, our vision, mission, and commitment to delivering excellence in logistics and transportation services across India. CIN: U52290AP2025PTC118981',
 }
 
 export default function AboutPage() {
@@ -120,13 +120,10 @@ export default function AboutPage() {
   ]
 
   const timeline = [
-    { year: '2018', event: 'Company Founded', description: 'Khyathi Logistics established in Tirupati, Andhra Pradesh' },
-    { year: '2019', event: 'Fleet Expansion', description: 'Expanded fleet to 50+ vehicles across South India' },
-    { year: '2020', event: 'Technology Integration', description: 'Launched mobile apps and real-time tracking system' },
-    { year: '2021', event: 'Pan India Operations', description: 'Extended services to cover all major Indian cities' },
-    { year: '2022', event: 'Aggregator Platform', description: 'Launched logistics aggregator connecting 500+ carriers' },
-    { year: '2023', event: 'Industry Recognition', description: 'Awarded for excellence in logistics innovation' },
-    { year: '2024', event: 'Continued Growth', description: 'Serving 1000+ clients with 250+ vehicles network' },
+    { year: '2025', event: 'Company Incorporated', description: 'Khyathi Logistics Solutions Private Limited officially incorporated with MCA on 21st April 2025 (CIN: U52290AP2025PTC118981)' },
+    { year: '2025', event: 'Operations Launch', description: 'Commenced logistics operations from registered office in Tada, Nellore, Andhra Pradesh' },
+    { year: '2025', event: 'Technology Platform', description: 'Developing mobile apps and real-time tracking system for seamless operations' },
+    { year: '2025', event: 'Network Expansion', description: 'Building pan-India network of verified carriers and transport partners' },
   ]
 
   const leadership = [
@@ -206,9 +203,11 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold mb-6 text-center">Our Story</h2>
             <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
               <p>
-                Founded in 2018 in Tirupati, Andhra Pradesh, Khyathi Logistics Solutions emerged from a vision 
-                to revolutionize India's fragmented logistics industry. We recognized the challenges businesses 
-                faced in finding reliable transport providers and the inefficiencies in traditional freight management.
+                Incorporated on 21st April 2025 with the Ministry of Corporate Affairs (MCA), Khyathi Logistics 
+                Solutions Private Limited (CIN: U52290AP2025PTC118981, Reg. No: 118981) emerged from a vision 
+                to revolutionize India's fragmented logistics industry. Registered in Tada, Nellore, Andhra Pradesh, 
+                we recognized the challenges businesses faced in finding reliable transport providers and the 
+                inefficiencies in traditional freight management.
               </p>
               <p>
                 Our journey began with a small fleet and a big dream – to create a technology-driven platform 

@@ -4,6 +4,10 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { CookieConsent } from "@/components/cookie-consent"
+import { WhatsAppButton } from "@/components/whatsapp-button"
+import { StructuredData } from "@/components/structured-data"
+import { getOrganizationSchema } from "@/lib/structured-data"
 import { cn } from "@/lib/utils"
 import { siteMetadata } from "./metadata"
 
@@ -32,11 +36,14 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", robotoFlex.variable)}
     >
       <body>
+        <StructuredData data={getOrganizationSchema()} />
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <CookieConsent />
+            <WhatsAppButton />
           </div>
         </ThemeProvider>
       </body>

@@ -117,7 +117,7 @@ export function Footer() {
               <li className="flex items-start group">
                 <RiMapPinLine className="mr-2 h-4 w-4 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-muted-foreground">
-                  Tirupati, Andhra Pradesh - 517541
+                  Tada, Nellore, Andhra Pradesh - 524401
                 </span>
               </li>
             </ul>
@@ -133,7 +133,8 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Khyathi Logistics Solutions. All rights reserved.
+              © {new Date().getFullYear()} Khyathi Logistics Solutions Private Limited. All rights reserved.<br />
+              <span className="text-xs">CIN: U52290AP2025PTC118981 | Reg. No: 118981</span>
             </p>
             <div className="flex space-x-4 text-sm">
               {[

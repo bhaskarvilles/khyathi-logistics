@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge'
 
 export const metadata = {
-  title: 'Terms & Conditions - Khyathi Logistics Solutions',
-  description: 'Terms and conditions for using Khyathi Logistics Solutions services.',
+  title: 'Terms & Conditions - Khyathi Logistics Solutions Private Limited',
+  description: 'Terms and conditions for using Khyathi Logistics Solutions Private Limited services.',
 }
 
 export default function TermsPage() {
@@ -27,13 +27,14 @@ export default function TermsPage() {
           <div className="max-w-4xl mx-auto prose prose-slate">
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing and using the services of Khyathi Logistics Solutions, you accept and agree 
+              By accessing and using the services of Khyathi Logistics Solutions Private Limited 
+              (CIN: U52290AP2025PTC118981, Reg. No: 118981), you accept and agree 
               to be bound by the terms and provisions of this agreement.
             </p>
 
             <h2>2. Services</h2>
             <p>
-              Khyathi Logistics Solutions provides logistics and transportation services including but 
+              Khyathi Logistics Solutions Private Limited provides logistics and transportation services including but 
               not limited to Part Truck Load (PTL), Full Truck Load (FTL), express delivery, and heavy 
               machinery transport across India.
             </p>
@@ -54,7 +55,7 @@ export default function TermsPage() {
 
             <h2>5. Liability and Insurance</h2>
             <p>
-              While we take utmost care in handling your cargo, Khyathi Logistics Solutions' liability 
+              While we take utmost care in handling your cargo, Khyathi Logistics Solutions Private Limited's liability 
               is limited as per standard industry practices. We recommend customers obtain appropriate 
               cargo insurance for valuable shipments.
             </p>
@@ -84,7 +85,7 @@ export default function TermsPage() {
 
             <h2>9. Force Majeure</h2>
             <p>
-              Khyathi Logistics Solutions shall not be liable for delays or failures in performance 
+              Khyathi Logistics Solutions Private Limited shall not be liable for delays or failures in performance 
               resulting from acts beyond our reasonable control, including natural disasters, strikes, 
               or government actions.
             </p>

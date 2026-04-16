@@ -1,10 +1,12 @@
 'use client'
 
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { AnimatedSection } from '@/components/animated-section'
@@ -19,10 +21,12 @@ import {
   RiArrowRightLine,
   RiCustomerService2Line,
   RiMailLine,
-  RiPhoneLine
+  RiPhoneLine,
+  RiSearchLine
 } from '@remixicon/react'
 
 export default function FAQPage() {
+  const [searchQuery, setSearchQuery] = useState('')
   const generalFAQs = [
     {
       question: 'What areas do you cover?',
@@ -146,6 +150,19 @@ export default function FAQPage() {
     { id: 'partners', label: 'Partners', icon: RiQuestionLine, faqs: partnerFAQs }
   ]
 
+  // Filter FAQs based on search query
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery.trim()) return categories
+
+    return categories.map(category => ({
+      ...category,
+      faqs: category.faqs.filter(faq =>
+        faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    })).filter(category => category.faqs.length > 0)
+  }, [searchQuery])
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -175,6 +192,18 @@ export default function FAQPage() {
               Find answers to common questions about our logistics services, pricing, 
               and support. Can't find what you're looking for? Contact our team.
             </motion.p>
+            <motion.div variants={staggerItem} className="max-w-2xl mx-auto">
+              <div className="relative">
+                <RiSearchLine className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Search FAQs..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 h-12 text-base bg-background/80 backdrop-blur-sm"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -182,32 +211,76 @@ export default function FAQPage() {
       {/* FAQ Content */}
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="general" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-12">
-              {categories.map((category) => (
-                <TabsTrigger key={category.id} value={category.id} className="text-xs md:text-sm">
-                  {category.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {categories.map((category) => (
-              <TabsContent key={category.id} value={category.id}>
-                <Accordion type="single" collapsible className="w-full">
-                  {category.faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left hover:text-primary">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
+          {searchQuery.trim() ? (
+            // Search Results View
+            <div className="max-w-5xl mx-auto">
+              <div className="mb-6">
+                <p className="text-muted-foreground">
+                  Found {filteredCategories.reduce((acc, cat) => acc + cat.faqs.length, 0)} results for "{searchQuery}"
+                </p>
+              </div>
+              {filteredCategories.length > 0 ? (
+                <div className="space-y-8">
+                  {filteredCategories.map((category) => (
+                    <div key={category.id}>
+                      <h3 className="text-xl font-semibold mb-4">{category.label}</h3>
+                      <Accordion type="single" collapsible className="w-full">
+                        {category.faqs.map((faq, index) => (
+                          <AccordionItem key={index} value={`${category.id}-${index}`}>
+                            <AccordionTrigger className="text-left hover:text-primary">
+                              {faq.question}
+                            </AccordionTrigger>
+                            <AccordionContent className="text-muted-foreground">
+                              {faq.answer}
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    </div>
                   ))}
-                </Accordion>
-              </TabsContent>
-            ))}
-          </Tabs>
+                </div>
+              ) : (
+                <Card className="p-12 text-center">
+                  <RiSearchLine className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                  <h3 className="text-xl font-semibold mb-2">No results found</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Try different keywords or browse categories below
+                  </p>
+                  <Button onClick={() => setSearchQuery('')} variant="outline">
+                    Clear Search
+                  </Button>
+                </Card>
+              )}
+            </div>
+          ) : (
+            // Category Tabs View
+            <Tabs defaultValue="general" className="max-w-5xl mx-auto">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-12">
+                {categories.map((category) => (
+                  <TabsTrigger key={category.id} value={category.id} className="text-xs md:text-sm">
+                    {category.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {categories.map((category) => (
+                <TabsContent key={category.id} value={category.id}>
+                  <Accordion type="single" collapsible className="w-full">
+                    {category.faqs.map((faq, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className="text-left hover:text-primary">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </TabsContent>
+              ))}
+            </Tabs>
+          )}
         </div>
       </AnimatedSection>
 

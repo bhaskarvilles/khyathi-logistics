@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge'
 
 export const metadata = {
-  title: 'Damage & Shortage Policy - Khyathi Logistics Solutions',
-  description: 'Policy for handling damage and shortage claims at Khyathi Logistics Solutions.',
+  title: 'Damage & Shortage Policy - Khyathi Logistics Solutions Private Limited',
+  description: 'Policy for handling damage and shortage claims at Khyathi Logistics Solutions Private Limited.',
 }
 
 export default function DamagePolicyPage() {
@@ -27,7 +27,7 @@ export default function DamagePolicyPage() {
           <div className="max-w-4xl mx-auto prose prose-slate">
             <h2>1. Policy Overview</h2>
             <p>
-              At Khyathi Logistics Solutions, we take every precaution to ensure safe transportation 
+              At Khyathi Logistics Solutions Private Limited (CIN: U52290AP2025PTC118981), we take every precaution to ensure safe transportation 
               of your cargo. This policy outlines procedures for handling damage and shortage claims.
             </p>
 

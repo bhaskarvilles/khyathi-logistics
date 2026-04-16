@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge'
 
 export const metadata = {
-  title: 'Privacy Policy - Khyathi Logistics Solutions',
-  description: 'Privacy policy and data protection practices at Khyathi Logistics Solutions.',
+  title: 'Privacy Policy - Khyathi Logistics Solutions Private Limited',
+  description: 'Privacy policy and data protection practices at Khyathi Logistics Solutions Private Limited.',
 }
 
 export default function PrivacyPage() {
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
           <div className="max-w-4xl mx-auto prose prose-slate">
             <h2>1. Information We Collect</h2>
             <p>
-              Khyathi Logistics Solutions collects information necessary to provide our logistics 
+              Khyathi Logistics Solutions Private Limited (CIN: U52290AP2025PTC118981) collects information necessary to provide our logistics 
               services, including:
             </p>
             <ul>

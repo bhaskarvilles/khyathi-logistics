@@ -1,6 +1,11 @@
-# Khyathi Logistics Solutions Website
+# Khyathi Logistics Solutions Private Limited Website
 
-A modern, responsive website for Khyathi Logistics Solutions built with Next.js 16 and shadcn/ui.
+A modern, responsive website for Khyathi Logistics Solutions Private Limited built with Next.js 16 and shadcn/ui.
+
+**Company Details:**
+- CIN: U52290AP2025PTC118981
+- Registration Number: 118981
+- Incorporated: 21st April 2025
 
 ## 🚀 Features
 
@@ -78,11 +83,13 @@ The color scheme can be modified in `app/globals.css` by updating the CSS custom
 
 ## 📧 Contact Information
 
-**Khyathi Logistics Solutions**
+**Khyathi Logistics Solutions Private Limited**
 
+- **CIN**: U52290AP2025PTC118981
+- **Registration Number**: 118981
 - **Email**: info.khyathilogistics@gmail.com
 - **Phone**: 9701557906 / 9491811144
-- **Address**: Flat No: 402, 5th Floor, Akshara Apartments, Srikalahasti Road, Tirupati District, Andhra Pradesh - 517541
+- **Registered Office**: Plot No. 408, 5th Floor, Akshara Apartments, Tada, Nellore, Andhra Pradesh - 524401, India
 
 ## 🎨 Design Features
 
@@ -103,4 +110,5 @@ The website includes comprehensive privacy and legal policies to ensure complian
 
 ## 📄 License
 
-© 2025 Khyathi Logistics Solutions. All rights reserved.
+© 2025 Khyathi Logistics Solutions Private Limited. All rights reserved.
+CIN: U52290AP2025PTC118981 | Reg. No: 118981

@@ -10,13 +10,15 @@ import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Separator } from '@/components/ui/separator'
+import { sendToWhatsApp } from '@/lib/whatsapp'
 import { 
   RiPhoneLine, 
   RiMailLine, 
   RiMapPinLine, 
   RiTimeLine,
   RiSendPlaneLine,
-  RiAlertLine
+  RiAlertLine,
+  RiWhatsappFill
 } from '@remixicon/react'
 
 export default function ContactPage() {
@@ -33,11 +35,22 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
+    // Send to WhatsApp
+    sendToWhatsApp({
+      type: 'contact',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      service: formData.serviceType,
+      message: `${formData.subject}\n\n${formData.message}`,
+    })
+    
+    // Simulate API call for email/database
     setTimeout(() => {
       setIsSubmitting(false)
       setSubmitStatus('success')
@@ -117,15 +130,13 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <RiMapPinLine className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium mb-1">Address</p>
+                      <p className="font-medium mb-1">Registered Office</p>
                       <p className="text-sm text-muted-foreground">
-                        Flat No: 402, 5th Floor<br />
+                        Plot No. 408, 5th Floor<br />
                         Akshara Apartments<br />
-                        Srikalahasti Road, Bathalavallam<br />
-                        Chedulapakkam Village<br />
-                        Varadaiahpalem Mandal<br />
-                        Tirupati District<br />
-                        Andhra Pradesh - 517541
+                        Tada, Nellore<br />
+                        Andhra Pradesh - 524401<br />
+                        India
                       </p>
                     </div>
                   </div>
@@ -299,6 +310,11 @@ export default function ContactPage() {
                         </>
                       )}
                     </Button>
+                    
+                    <p className="text-xs text-muted-foreground mt-4">
+                      <RiWhatsappFill className="inline h-4 w-4 text-[#25D366] mr-1" />
+                      Your message will be sent via WhatsApp for instant response
+                    </p>
                   </form>
                 </CardContent>
               </Card>
@@ -312,42 +328,22 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Find Us</h2>
-            <p className="text-muted-foreground">Visit our office in Tirupati, Andhra Pradesh</p>
+            <p className="text-muted-foreground">Visit our registered office in Tada, Nellore, Andhra Pradesh</p>
           </div>
           
           <div className="max-w-5xl mx-auto">
             <Card className="overflow-hidden">
               <div className="aspect-video bg-muted relative">
-                {/* Google Maps Embed Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <RiMapPinLine className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground mb-2">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground">
-                      Tirupati District, Andhra Pradesh - 517541
-                    </p>
-                    <Button variant="outline" className="mt-4" asChild>
-                      <a 
-                        href="https://www.google.com/maps/search/Tirupati+Andhra+Pradesh+517541" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Open in Google Maps
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-                {/* To add actual Google Maps, replace the above div with:
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d288.2499770317447!2d80.0194338561474!3d13.583736176586594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d77aff8eb8fe7%3A0x32f2c6e737fee476!2sAkshara%20Apartments!5e0!3m2!1sen!2sin!4v1776324588881!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  title="Khyathi Logistics Office Location"
                 ></iframe>
-                */}
               </div>
             </Card>
           </div>

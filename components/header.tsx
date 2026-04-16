@@ -45,6 +45,11 @@ export function Header() {
   const moreLinks = [
     { href: '/gallery', label: 'Gallery' },
     { href: '/testimonials', label: 'Testimonials' },
+    { href: '/partners', label: 'Partners' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/careers', label: 'Careers' },
+    { href: '/track-shipment', label: 'Track Shipment' },
     { href: '/contact', label: 'Contact' },
   ]
 

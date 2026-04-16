@@ -13,8 +13,8 @@ import {
 } from '@remixicon/react'
 
 export const metadata = {
-  title: 'Client Testimonials - Khyathi Logistics Solutions',
-  description: 'Read what our clients say about Khyathi Logistics Solutions. Real reviews from businesses across India.',
+  title: 'Client Testimonials - Khyathi Logistics Solutions Private Limited',
+  description: 'Read what our clients say about Khyathi Logistics Solutions Private Limited. Real reviews from businesses across India.',
 }
 
 export default function TestimonialsPage() {
